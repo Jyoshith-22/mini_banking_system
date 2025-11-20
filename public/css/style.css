@@ -1,0 +1,86 @@
+:root {
+  font-family: system-ui, Arial, sans-serif;
+  --bg: #f6f8fa;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #0f172a;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; padding: 16px; background: var(--bg); color: var(--accent); -webkit-font-smoothing:antialiased; }
+.container { max-width: 1100px; margin: 0 auto; padding-bottom: 48px; }
+
+/* Cards */
+.card {
+  background: var(--card);
+  padding: 18px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(18, 24, 40, 0.04);
+}
+
+/* Header */
+header { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:8px; }
+header h1 { margin:0; font-size:28px; }
+#userIdDisplay { color: var(--muted); font-size:14px; }
+
+/* Forms & inputs */
+input, select, textarea {
+  display:block;
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:6px;
+  border:1px solid #ddd;
+  font-size:15px;
+}
+button {
+  padding:10px 14px;
+  margin-right:6px;
+  cursor:pointer;
+  border-radius:8px;
+  border:1px solid rgba(0,0,0,0.08);
+  background: #fff;
+}
+
+/* Utility */
+.small { font-size:0.95rem; color:var(--muted); }
+.actions { display:block; }
+
+/* Transactions list */
+.transactions ul { list-style: none; padding-left: 12px; margin: 0; }
+.transactions li { padding:8px 0; border-bottom: 1px dashed #f0f0f0; font-size:14px; color:#111827; }
+
+/* Layout for dashboard: 2-column on wider screens */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* larger screens: two columns */
+@media(min-width:900px) {
+  .dashboard-grid {
+    grid-template-columns: 320px 1fr;
+    align-items: start;
+  }
+
+  .balance { grid-column: 1 / 2; }
+  .actions { grid-column: 1 / 2; }
+  .transactions { grid-column: 2 / 3; }
+}
+
+/* Auth page layout */
+@media(min-width:768px){
+  #auth { display:flex; gap:18px; }
+  #auth .card { flex: 1; }
+}
+
+/* Mobile polish */
+@media(max-width:479px){
+  .container { padding:12px; }
+  header h1 { font-size:22px; }
+  input { padding:12px; font-size:16px; }
+  button { width:100%; margin:8px 0; }
+  .dashboard-grid { gap:12px; }
+}
